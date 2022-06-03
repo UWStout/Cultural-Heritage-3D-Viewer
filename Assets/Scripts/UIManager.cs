@@ -74,15 +74,15 @@ public class UIManager: MonoBehaviour
 
     }
 
-    public void toggleHelpOverlay()
-    {
-        if (helpOverlay.activeSelf)
-        {
-            helpOverlay.SetActive(false);
-        }
-        else
-        {
-            helpOverlay.SetActive(true);
-        }
-    }
+    //public void toggleHelpOverlay()
+    //{
+        //if (helpOverlay.activeSelf)
+        //{
+            //helpOverlay.SetActive(false);
+        //}
+        //else
+        //{
+            //helpOverlay.SetActive(true);
+        //}
+    //}
 }
