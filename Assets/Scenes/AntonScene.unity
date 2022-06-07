@@ -1985,6 +1985,8 @@ MonoBehaviour:
   - {fileID: 5356931536606093663, guid: 64c88d204e605fe4b828b552bbaa6d55, type: 3}
   - {fileID: 5272446596376692470, guid: c31812842d3c9c74d9c4c0a48443dbbf, type: 3}
   - {fileID: 3442393742373954966, guid: de16694e43a2b574597b7bb5e8d09100, type: 3}
+  - {fileID: 3111068554906032134, guid: 00392cdc1a2374248ab9447bc672afed, type: 3}
+  - {fileID: 8665272302649010585, guid: 52a5b2c6a60d7fd47b07e0e040e2354b, type: 3}
   - {fileID: 959588749310829477, guid: 2cfccb1a2bcec2f4b9afbbf5a3da879b, type: 3}
   textBox: {fileID: 0}
   titleBox: {fileID: 0}
@@ -2734,6 +2736,10 @@ MonoBehaviour:
     - m_Text: Ding
       m_Image: {fileID: 0}
     - m_Text: Altarpiece
+      m_Image: {fileID: 0}
+    - m_Text: Tiger Hat
+      m_Image: {fileID: 0}
+    - m_Text: Boreas
       m_Image: {fileID: 0}
     - m_Text: Jade
       m_Image: {fileID: 0}

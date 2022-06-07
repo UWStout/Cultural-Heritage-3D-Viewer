@@ -19,6 +19,8 @@ Shader "Custom/BasisIBR"
         _SpecGlossMap("Specular", 2D) = "white" {}
         _RoughnessMap("Roughness", 2D) = "gray" {}
 
+        _ReflectanceScale("Reflectance Scale", Range(0.0, 10.0)) = 1.0
+
         _BumpScale("Scale", Float) = 1.0
         _BumpMap("Normal Map", 2D) = "bump" {}
 
@@ -48,6 +50,7 @@ Shader "Custom/BasisIBR"
         // "UniversalRenderPipeline"
         Tags{"RenderType" = "Opaque" "RenderPipeline" = "UniversalRenderPipeline" "IgnoreProjector" = "True"}
         LOD 300
+        Cull off // TODO For now; to make the tiger hat look OK
 
         // ------------------------------------------------------------------
         // Forward pass. Shades GI, emission, fog and all lights in a single pass.
@@ -62,7 +65,7 @@ Shader "Custom/BasisIBR"
 
             Blend[_SrcBlend][_DstBlend]
             ZWrite[_ZWrite]
-            Cull[_Cull]
+            //Cull[_Cull]  // TODO Commented out for now; to make the tiger hat look OK
 
             HLSLPROGRAM
             // Required to compile gles 2.0 with standard SRP library
@@ -210,6 +213,8 @@ Shader "Custom/BasisIBR"
             TEXTURE2D_ARRAY(_BasisFunctions);
             SAMPLER(linear_clamp_sampler_BasisFunctions);
 
+            float _ReflectanceScale;
+
             #define PI 3.1415926535897932384626433832795 // For convenience
             #define BASIS_COUNT 12
 
@@ -271,7 +276,7 @@ Shader "Custom/BasisIBR"
                 // Use IBR for the highlight
                 brdf += DirectBRDFSpecularIBR(brdfData, weights, normalWS, lightDirectionWS, viewDirectionWS);
 
-                return brdf * radiance;
+                return step(0.0, NdotL) * brdf * radiance;
             }
 
             // Based on com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl
@@ -306,7 +311,7 @@ Shader "Custom/BasisIBR"
 
                 float3 positionWS = input.positionWSAndFogFactor.xyz;
                 half3 viewDirectionWS = SafeNormalize(GetCameraPositionWS() - positionWS);
-
+               
                 // BRDFData holds energy conserving diffuse and specular material reflections and its roughness.
                 // It's easy to plugin your own shading fuction. You just need replace LightingPhysicallyBased function
                 // below with your own.
@@ -329,8 +334,10 @@ Shader "Custom/BasisIBR"
                 Light mainLight = GetMainLight();
 #endif
 
+                float visibility = smoothstep(-0.1, 0.0, dot(input.normalWS, viewDirectionWS));
+
                 // Mix diffuse GI with environment reflections.
-                half3 color = GlobalIllumination(brdfData, bakedGI, surfaceData.occlusion, normalWS, viewDirectionWS);
+                half3 color = visibility * GlobalIllumination(brdfData, bakedGI, surfaceData.occlusion, normalWS, viewDirectionWS);
 
                 // Extract weights for IBR
                 float4 weights0123 = tex2D(_BasisWeights0123, input.uv);
@@ -362,7 +369,7 @@ Shader "Custom/BasisIBR"
                 //return float4(1-(weights[0] + weights[1] + weights[2] + weights[3] + weights[4] + weights[5] + weights[6] + weights[7]), 0,0, 1);
 
                 // LightingPhysicallyBased computes direct light contribution.
-                color += LightingPhysicallyBasedIBR(brdfData, weights, mainLight, normalWS, viewDirectionWS);
+                color += visibility * LightingPhysicallyBasedIBR(brdfData, weights, mainLight, normalWS, viewDirectionWS);
                 //color += LightingPhysicallyBased(brdfData, mainLight, normalWS, viewDirectionWS);
 
                 // For debugging:
@@ -383,10 +390,13 @@ Shader "Custom/BasisIBR"
                     Light light = GetAdditionalLight(i, positionWS);
 
                     // Same functions used to shade the main light.
-                    color += LightingPhysicallyBasedIBR(brdfData, weights, light, normalWS, viewDirectionWS);
+                    color += visibility * LightingPhysicallyBasedIBR(brdfData, weights, light, normalWS, viewDirectionWS);
                     //color += LightingPhysicallyBased(brdfData, light, normalWS, viewDirectionWS);
                 }
 #endif
+
+                // Adjust intensity as necessary.
+                color *= _ReflectanceScale;
 
                 float fogFactor = input.positionWSAndFogFactor.w;
 
