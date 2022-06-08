@@ -236,9 +236,10 @@ Shader "Custom/BasisIBR"
             // NOTE: needs to be multiplied with reflectance f0, i.e. specular color to complete
             half3 DirectBRDFSpecularIBR(BRDFData brdfData, float weights[BASIS_COUNT], half3 normalWS, half3 lightDirectionWS, half3 viewDirectionWS)
             {
-                float3 halfDir = SafeNormalize(float3(lightDirectionWS) +float3(viewDirectionWS));
+                float3 lightDirectionWSFloat3 = float3(lightDirectionWS);
+                float3 halfDir = SafeNormalize(lightDirectionWSFloat3 +float3(viewDirectionWS));
                 float NoH = saturate(dot(normalWS, halfDir));
-                half LoH = saturate(dot(lightDirectionWS, halfDir));
+                half LoH = saturate(dot(lightDirectionWSFloat3, halfDir));
 
                 // Distribution from basis functions multiplied by combined approximation of Visibility and Fresnel
                 // BRDFspec = (D * V * F) / 4.0
@@ -255,7 +256,7 @@ Shader "Custom/BasisIBR"
                 // On platforms where half actually means something, the denominator has a risk of overflow
                 // clamp below was added specifically to "fix" that, but dx compiler (we convert bytecode to metal/gles)
                 // sees that specularTerm have only non-negative terms, so it skips max(0,..) in clamp (leaving only min(100,...))
-#if defined (SHADER_API_MOBILE) || defined (SHADER_API_SWITCH)
+#if REAL_IS_HALF
                 specularTerm = specularTerm - HALF_MIN;
                 specularTerm = clamp(specularTerm, 0.0, 100.0); // Prevent FP16 overflow on mobiles
 #endif
