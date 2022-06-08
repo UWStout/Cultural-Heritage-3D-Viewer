@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+
+using UnityEngine;
 using UnityEditor;
 using System.Text.RegularExpressions;
 using System.IO;
 
 // Source: https://gist.github.com/Spaxe/57de76c993a4dc8bb37275acbe597ef2
-public class TextureArray : MonoBehaviour
+public class TextureArray
 {
     private static string AbsolutePathToAssetPath(string absolutePath)
     {
@@ -126,7 +128,7 @@ public class TextureArray : MonoBehaviour
         }
     }
 
-    [MenuItem("GameObject/Create 1D Texture Array from CSV")]
+    [MenuItem("Assets/Create/1D Texture Array from CSV")]
     static void Create1DFromCSV()
     {
         string csvFile = EditorUtility.OpenFilePanel("Select the file containing texture array data", "Assets", "csv");
@@ -185,3 +187,5 @@ public class TextureArray : MonoBehaviour
         }
     }
 }
+
+#endif
