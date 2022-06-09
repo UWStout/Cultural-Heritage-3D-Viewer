@@ -13,7 +13,9 @@ public class CameraController : MonoBehaviour
     public GameObject cameraTarget;
     private float zoomModifier = 2.0f;
     private float dragModifer = 0.01f;
-    private float rotationModifer = 0.01f;
+    [SerializeField]
+    float rotationModifer = 0.1f;
+    private float minAngle = -88f;
     private float maxAngle = 88f;
     private float maxZoomDistance = 20.0f;
     private float minZoomDistance = 2.0f;
@@ -22,6 +24,7 @@ public class CameraController : MonoBehaviour
     private Vector2 lastMousePosition;
     private Vector3 startPosition;
     private Quaternion startRotation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -91,31 +94,32 @@ public class CameraController : MonoBehaviour
             Vector2 deltaMouse = currentMousePosition - lastMousePosition;
             transform.Translate(new Vector3(-deltaMouse.x, -deltaMouse.y, 0f) * dragModifer, Space.Self);
             // Update the transform of the camera target to align with the camera
-            cameraTarget.transform.Translate(new Vector3(-deltaMouse.x, -deltaMouse.y, 0f) * dragModifer, Space.Self);
+            cameraTarget.transform.Translate(new Vector3(-deltaMouse.x, -deltaMouse.y, 0f) * dragModifer / 100, Space.Self);
         }
         else if (rotateCamera)
         {
             Vector2 currentMousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             Vector2 deltaMouse = currentMousePosition - lastMousePosition;
-            transform.RotateAround(cameraTarget.transform.position, cameraTarget.transform.up, deltaMouse.x);
-            if(Vector3.Angle(transform.forward, Vector3.up) < 6f)
+            transform.RotateAround(cameraTarget.transform.position, cameraTarget.transform.up, deltaMouse.x * rotationModifer);
+            if (Vector3.Angle(transform.forward, Vector3.up) < 6f)
             {
                 if (-deltaMouse.y > 0)
                 {
-                    transform.RotateAround(cameraTarget.transform.position, cameraTarget.transform.right, -deltaMouse.y);
+                    transform.RotateAround(cameraTarget.transform.position, cameraTarget.transform.right, -deltaMouse.y * rotationModifer);
                 }
             }
             else if (Vector3.Angle(transform.forward, Vector3.up) > 174f)
             {
                 if (-deltaMouse.y < 0)
                 {
-                    transform.RotateAround(cameraTarget.transform.position, cameraTarget.transform.right, -deltaMouse.y);
+                    transform.RotateAround(cameraTarget.transform.position, cameraTarget.transform.right, -deltaMouse.y * rotationModifer);
                 }
             }
             // Normal case
             else
             {
-                transform.RotateAround(cameraTarget.transform.position, cameraTarget.transform.right, -deltaMouse.y);
+                transform.RotateAround(cameraTarget.transform.position, cameraTarget.transform.right, -deltaMouse.y * rotationModifer);
+
             }
             transform.LookAt(cameraTarget.transform);
         }
