@@ -19,8 +19,8 @@ public class CameraController : MonoBehaviour
     private float maxAngle = 88f;
     private float maxZoomDistance = 20.0f;
     private float minZoomDistance = 2.0f;
-    private bool dragCamera;
-    private bool rotateCamera;
+    public bool dragCamera;
+    public bool rotateCamera;
     private Vector2 lastMousePosition;
     private Vector3 startPosition;
     private Quaternion startRotation;

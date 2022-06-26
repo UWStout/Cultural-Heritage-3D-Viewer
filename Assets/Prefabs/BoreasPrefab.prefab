@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2256385208875305529
 Transform:
   m_ObjectHideFlags: 0
@@ -122,6 +122,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5fdf1bfac7df99245b714bc92e3dce9a, type: 3}
       propertyPath: m_Name
       value: Mia_0022091_64kMesh_4kTextures
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5fdf1bfac7df99245b714bc92e3dce9a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: 5fdf1bfac7df99245b714bc92e3dce9a, type: 3}
       propertyPath: m_LocalPosition.x
