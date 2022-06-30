@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &389079658806800930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2853482050207043953}
+  m_Layer: 0
+  m_Name: Annotation Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2853482050207043953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389079658806800930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8879538592728411438}
+  m_Father: {fileID: 3064315125029161739}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &743059561071485933
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,6 +177,7 @@ Transform:
   m_Children:
   - {fileID: 1151388028547126963}
   - {fileID: 295262841066940196}
+  - {fileID: 2853482050207043953}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,3 +264,89 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &2923647820936904145
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2853482050207043953}
+    m_Modifications:
+    - target: {fileID: 1176585485845534890, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_Name
+      value: Annotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.69261754
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.68678486
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.1293154
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.17856388
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421328834201214393, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: annotationText
+      value: In this mountain scene, an official riding a donkey is followed by his
+        attendant who carries an umbrella; they cross a rustic bridge over a waterfall.
+        Above them a similar group in smaller scale, as if in the far distance, crosses
+        another bridge. This type of jade mountain had its beginnings in the late
+        Ming period.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421328834201214393, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+      propertyPath: annotationTitle
+      value: Autumn Jade
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+--- !u!4 &8879538592728411438 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6028234668988109055, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
+  m_PrefabInstance: {fileID: 2923647820936904145}
+  m_PrefabAsset: {fileID: 0}
