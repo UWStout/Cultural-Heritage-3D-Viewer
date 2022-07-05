@@ -94,7 +94,7 @@ public class CameraController : MonoBehaviour
             Vector2 deltaMouse = currentMousePosition - lastMousePosition;
             transform.Translate(new Vector3(-deltaMouse.x, -deltaMouse.y, 0f) * dragModifer, Space.Self);
             // Update the transform of the camera target to align with the camera
-            cameraTarget.transform.Translate(new Vector3(-deltaMouse.x, -deltaMouse.y, 0f) * dragModifer / 100, Space.Self);
+            cameraTarget.transform.Translate(new Vector3(-deltaMouse.x, -deltaMouse.y, 0f) * dragModifer, Space.Self);
         }
         else if (rotateCamera)
         {
