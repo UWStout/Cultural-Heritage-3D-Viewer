@@ -11,51 +11,33 @@ public class AnnotationScript : MonoBehaviour
     string annotationText = "This is an annotation";
     public Text textBox;
     public Text titleBox;
+    GameObject popupmenu;
+    GameObject holder;
     // Start is called before the first frame update
     void Start()
     {
-        if (!textBox)
-        {
-            textBox = GameObject.Find("AnnotationTextbox").GetComponent<Text>();
-        }
-        if (!titleBox)
-        {
-            titleBox = GameObject.Find("AnnotationTitlebox").GetComponent<Text>();
-        }
+        holder = GameObject.Find("Annotations Popup Holder");
+        popupmenu = holder.transform.GetChild(0).gameObject;
+        textBox = popupmenu.transform.GetChild(1).GetComponent<Text>();
+        titleBox = popupmenu.transform.GetChild(0).GetComponent<Text>();
+        //popupmenu.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Find new textbox if the variable is ever invalid, after changing scenes etc
-        if (!textBox)
-        {
-            textBox = GameObject.Find("AnnotationTextbox").GetComponent<Text>();
-        }
-        if (!titleBox)
-        {
-            titleBox = GameObject.Find("AnnotationTitlebox").GetComponent<Text>();
-        }
-    }
 
     private void OnMouseDown()
     {
         // Reset text if already active
-        if(titleBox.text == annotationTitle)
+        if(!popupmenu.activeSelf)
         {
-            titleBox.text = "";
-            textBox.text = "";
-        }
-        else
-        {
+            popupmenu.SetActive(true);
             titleBox.text = annotationTitle;
             textBox.text = annotationText;
         }
-    }
-
-
-    private void OnMouseExit()
-    {
-       // textBox.text = "";
+        else
+        {
+            popupmenu.SetActive(false);
+            titleBox.text = "";
+            textBox.text = "";
+        }
     }
 }

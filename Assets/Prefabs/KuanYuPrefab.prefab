@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2275899897962014918}
+  - component: {fileID: 3564048501009965535}
   m_Layer: 0
   m_Name: AnnotationParent
   m_TagString: AnnotationParent
@@ -16,15 +16,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2275899897962014918
-Transform:
+--- !u!224 &3564048501009965535
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355042818167629511}
   m_LocalRotation: {x: -0, y: -0.17931688, z: 0, w: 0.98379135}
-  m_LocalPosition: {x: 0.57599723, y: 3.6543672, z: 0.19083008}
+  m_LocalPosition: {x: 0, y: 0, z: 0.19083008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32,6 +32,11 @@ Transform:
   m_Father: {fileID: 7030944149143735468}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.57599723, y: 3.6543672}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1681238213693402831
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +149,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7629900691625999860}
-  - {fileID: 2275899897962014918}
+  - {fileID: 3564048501009965535}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -153,7 +158,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2275899897962014918}
+    m_TransformParent: {fileID: 3564048501009965535}
     m_Modifications:
     - target: {fileID: 1176585485845534890, guid: da5e1182fbe63434fb074dc7e901e2d3, type: 3}
       propertyPath: m_Name

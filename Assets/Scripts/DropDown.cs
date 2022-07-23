@@ -10,18 +10,22 @@ public class DropDown : MonoBehaviour
     public Text textBox;
     public Text titleBox;
     GameObject currentObject;
+    GameObject popupmenu;
+    GameObject holder;
 
     private void Start()
     {
         currentObject = Instantiate(objects[0], objects[0].transform.position, objects[0].transform.rotation);
         DontDestroyOnLoad(currentObject);
+        holder = GameObject.Find("Annotations Popup Holder");
+        popupmenu = holder.transform.GetChild(0).gameObject;
         if (!textBox)
         {
-            textBox = GameObject.Find("AnnotationTextbox").GetComponent<Text>();
+            textBox = popupmenu.transform.GetChild(1).GetComponent<Text>();
         }
         if (!titleBox)
         {
-            titleBox = GameObject.Find("AnnotationTitlebox").GetComponent<Text>();
+            titleBox = popupmenu.transform.GetChild(0).GetComponent<Text>();
         }
     }
 
@@ -30,11 +34,11 @@ public class DropDown : MonoBehaviour
         // Clear the annotation box when changing objects
         if (!textBox)
         {
-            textBox = GameObject.Find("AnnotationTextbox").GetComponent<Text>();
+            textBox = popupmenu.transform.GetChild(1).GetComponent<Text>();
         }
         if (!titleBox)
         {
-            titleBox = GameObject.Find("AnnotationTitlebox").GetComponent<Text>();
+            titleBox = popupmenu.transform.GetChild(0).GetComponent<Text>();
         }
         textBox.text = "";
         titleBox.text = "";
