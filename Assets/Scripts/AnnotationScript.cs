@@ -20,7 +20,6 @@ public class AnnotationScript : MonoBehaviour
         popupmenu = holder.transform.GetChild(0).gameObject;
         textBox = popupmenu.transform.GetChild(1).GetComponent<Text>();
         titleBox = popupmenu.transform.GetChild(0).GetComponent<Text>();
-        //popupmenu.SetActive(false);
     }
 
 
