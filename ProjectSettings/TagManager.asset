@@ -4,6 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - LightSource1
+  - LightSource2
+  - LightSource3
   - AnnotationParent
   layers:
   - Default
