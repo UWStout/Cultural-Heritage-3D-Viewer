@@ -3,31 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class ArtifactManager : MonoBehaviour
+public class NextButtonScript : MonoBehaviour
 {
     [SerializeField]
-    int index;
-    [SerializeField]
     DropDown drop;
-    
+
+    [SerializeField]
     int idnum = 0;
+
     static int changenum = 1;
     static float lastnum = 0f;
 
     static float artifactChange = 0f;
+    
+    [SerializeField]
     string filename = "testfile.txt";
+    
     StreamWriter writer;
 
     static bool iswritten = false;
     static bool finalwritten = false;
 
-    public void Awake()
+    public void Start()
     {
         writer = new StreamWriter(filename, true);
         if (!iswritten)
         {
             writer.WriteLine("Participant number: " + idnum);
-            writer.WriteLine("First artifact is Guan Yu.");
             iswritten = true;
         }
         writer.Close();
@@ -37,33 +39,32 @@ public class ArtifactManager : MonoBehaviour
     {
         artifactChange = Time.unscaledTime;
         writer = new StreamWriter(filename, true);
-        writer.WriteLine("Time spent on artifact: " + (artifactChange - lastnum) + " seconds");
         writer.WriteLine("Change number: " + changenum);
-        if (index == 0)
+        if (drop.value == 0)
         {
             writer.WriteLine("Artifact switched to: Guan Yu");
         }
-        else if (index == 1)
+        else if (drop.value == 1)
         {
             writer.WriteLine("Artifact switched to: Polyena");
         }
-        else if (index == 2)
+        else if (drop.value == 2)
         {
             writer.WriteLine("Artifact switched to: Ding");
         }
-        else if (index == 3)
+        else if (drop.value == 3)
         {
             writer.WriteLine("Artifact switched to: Autumn Jade");
         }
-        else if (index == 4)
+        else if (drop.value == 4)
         {
             writer.WriteLine("Artifact switched to: Altarpiece");
         }
-        else if (index == 5)
+        else if (drop.value == 5)
         {
             writer.WriteLine("Artifact switched to: Boreas");
         }
-        else if (index == 6)
+        else if (drop.value == 6)
         {
             writer.WriteLine("Artifact switched to: Vase");
         }
@@ -71,15 +72,18 @@ public class ArtifactManager : MonoBehaviour
         {
             writer.WriteLine("Artifact switched to: Tiger Hat");
         }
+        writer.WriteLine("Time spent on artifact: " + (artifactChange - lastnum) + " seconds");
         writer.Close();
         changenum++;
         lastnum = artifactChange;
-        drop.HandleInputData(index);
+       
+        drop.NextArtifact();
     }
 
     public void OnDestroy()
     {
         writer = new StreamWriter(filename, true);
+
         if (!finalwritten)
         {
             writer.WriteLine("Experiment finshed.");
