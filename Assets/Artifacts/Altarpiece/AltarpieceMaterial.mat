@@ -50,7 +50,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BasisWeights89AB:
-        m_Texture: {fileID: 2800000, guid: 3edaee01c749ead4ba8c9d5b6e1e1bec, type: 3}
+        m_Texture: {fileID: 2800000, guid: 45201bbd969e1dd439e33189283ada13, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -97,6 +97,7 @@ Material:
     - _OcclusionStrength: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _ReflectanceScale: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
