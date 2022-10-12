@@ -25,7 +25,8 @@ public class NextButtonScript : MonoBehaviour
     static bool finalwritten = false;
 
     public void Start()
-    {writer = new StreamWriter(filename, true);
+    {
+        writer = new StreamWriter(filename, false); // Don't append for the first time the file is opened.
         if (!iswritten)
         {
             writer.WriteLine("Participant number: " + idnum);
