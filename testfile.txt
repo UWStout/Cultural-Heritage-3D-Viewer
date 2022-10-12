@@ -34,3 +34,8 @@ Artifact switched to: Vase
 Time spent on artifact: 5.818783 seconds
 Change number: 7
 Artifact switched to: Tiger Hat
+Change number: 1
+Artifact switched to: Guan Yu
+Time spent on artifact: 128.1299 seconds
+Experiment finshed.
+Experiment finshed.
