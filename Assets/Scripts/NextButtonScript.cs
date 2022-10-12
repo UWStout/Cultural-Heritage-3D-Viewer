@@ -25,8 +25,7 @@ public class NextButtonScript : MonoBehaviour
     static bool finalwritten = false;
 
     public void Start()
-    {
-        writer = new StreamWriter(filename, true);
+    {writer = new StreamWriter(filename, true);
         if (!iswritten)
         {
             writer.WriteLine("Participant number: " + idnum);
@@ -40,38 +39,7 @@ public class NextButtonScript : MonoBehaviour
         artifactChange = Time.unscaledTime;
         writer = new StreamWriter(filename, true);
         writer.WriteLine("Change number: " + changenum);
-        if (drop.value == 0)
-        {
-            writer.WriteLine("Artifact switched to: Guan Yu");
-        }
-        else if (drop.value == 1)
-        {
-            writer.WriteLine("Artifact switched to: Polyena");
-        }
-        else if (drop.value == 2)
-        {
-            writer.WriteLine("Artifact switched to: Ding");
-        }
-        else if (drop.value == 3)
-        {
-            writer.WriteLine("Artifact switched to: Autumn Jade");
-        }
-        else if (drop.value == 4)
-        {
-            writer.WriteLine("Artifact switched to: Altarpiece");
-        }
-        else if (drop.value == 5)
-        {
-            writer.WriteLine("Artifact switched to: Boreas");
-        }
-        else if (drop.value == 6)
-        {
-            writer.WriteLine("Artifact switched to: Vase");
-        }
-        else
-        {
-            writer.WriteLine("Artifact switched to: Tiger Hat");
-        }
+        writer.WriteLine("Artifact switched to: " + drop.CurrentObjectName);
         writer.WriteLine("Time spent on artifact: " + (artifactChange - lastnum) + " seconds");
         writer.Close();
         changenum++;

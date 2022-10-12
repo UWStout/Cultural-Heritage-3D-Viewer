@@ -12,14 +12,49 @@ public class DropDown : MonoBehaviour
     GameObject currentObject;
     GameObject popupmenu;
     GameObject holder;
-    
-    public int value;
+
+    public string CurrentObjectName
+    {
+        get
+        {
+            return currentObject.name;
+        }
+    }
+
+    private int sequenceIndex;
+    private int[] sequence;
+
+    public int CurrentObjectIndex
+    {
+        get
+        {
+            return sequence[sequenceIndex];
+        }
+    }
 
     private void Start()
     {
-        currentObject = Instantiate(objects[0], objects[0].transform.position, objects[0].transform.rotation);
+        // Randomization
+        sequence = new int[objects.Length];
+        for (int i = 0; i < sequence.Length; i++)
+        {
+            sequence[i] = i;
+        }
+
+        for (int i = 0; i < sequence.Length; i++)
+        {
+            // Pick a random object not yet selected.
+            int randomIndex = Random.Range(i, sequence.Length - 1);
+
+            // Swap
+            int tmp = sequence[i];
+            sequence[i] = sequence[randomIndex];
+            sequence[randomIndex] = tmp;
+        }
+
+        currentObject = Instantiate(objects[CurrentObjectIndex], objects[CurrentObjectIndex].transform.position, objects[CurrentObjectIndex].transform.rotation);
         DontDestroyOnLoad(currentObject);
-        value = 0;
+        sequenceIndex = 0;
         holder = GameObject.Find("Annotations Popup Holder");
         popupmenu = holder.transform.GetChild(0).gameObject;
         if (!textBox)
@@ -64,18 +99,18 @@ public class DropDown : MonoBehaviour
         textBox.text = "";
         titleBox.text = "";
 
-        if (value == objects.Length - 1) {
-            value = 0;
+        if (sequenceIndex == objects.Length - 1) {
+            sequenceIndex = 0;
 
             Destroy(currentObject);
-            currentObject = Instantiate(objects[value], objects[value].transform.position, objects[value].transform.rotation);
+            currentObject = Instantiate(objects[CurrentObjectIndex], objects[CurrentObjectIndex].transform.position, objects[CurrentObjectIndex].transform.rotation);
             DontDestroyOnLoad(currentObject);
         }
         else
         {
-            value++;
+            sequenceIndex++;
             Destroy(currentObject);
-            currentObject = Instantiate(objects[value], objects[value].transform.position, objects[value].transform.rotation);
+            currentObject = Instantiate(objects[CurrentObjectIndex], objects[CurrentObjectIndex].transform.position, objects[CurrentObjectIndex].transform.rotation);
             DontDestroyOnLoad(currentObject);
         }
     }
