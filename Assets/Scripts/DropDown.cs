@@ -135,10 +135,15 @@ public class DropDown : MonoBehaviour
 
         if (sequenceIndex == randomizedObjects.Length - 1) 
         {
-            //Application.Quit();
+            // Exit if we were on the last artifact.
+#if UNITY_EDITOR
+            // Quit in the editor
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            Application.Quit();
 
-            SurveyPanel.SetActive(true);
-            NextArtifactButton.SetActive(false);
+            //SurveyPanel.SetActive(true);
+            //NextArtifactButton.SetActive(false);
 
 
 
