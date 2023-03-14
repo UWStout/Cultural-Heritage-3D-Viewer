@@ -20,7 +20,7 @@ public class DropDown : MonoBehaviour
     [SerializeField]
     private GameObject SurveyPanel;
     [SerializeField]
-    private GameObject NextArtifactButton;
+    private NextButtonScript NextArtifactButton;
 
     public string CurrentObjectName
     {
@@ -161,6 +161,8 @@ public class DropDown : MonoBehaviour
             currentObject = Instantiate(CurrentObject, CurrentObject.transform.position, CurrentObject.transform.rotation);
             DontDestroyOnLoad(currentObject);
 
+            // Start the timer only after the survey is submitted and the object is changed.
+            NextArtifactButton.StartTimer();
         }
     }
 }

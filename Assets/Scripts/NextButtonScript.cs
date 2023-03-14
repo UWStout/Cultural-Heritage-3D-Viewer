@@ -52,7 +52,7 @@ public class NextButtonScript : MonoBehaviour
         if (lastnum == 0)
         {
             // Initialize first timestamp on the first update frame.
-            lastnum = Time.unscaledTime;
+            StartTimer();
         }
     }
 
@@ -65,12 +65,17 @@ public class NextButtonScript : MonoBehaviour
         writer.WriteLine("Time spent: " + (artifactChange - lastnum) + " seconds");
         writer.Close();
         changenum++;
-        lastnum = artifactChange;
         SurveyPanel.SetActive(true);
         NextArtifactButton.SetActive(false);
         
        // drop.NextArtifact();
         
+    }
+
+    public void StartTimer()
+    {
+        // Timestamp
+        lastnum = Time.unscaledTime;
     }
 
     public void OnDestroy()
