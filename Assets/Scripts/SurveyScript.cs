@@ -10,6 +10,10 @@ public class SurveyScript : MonoBehaviour
     [SerializeField]
     private GameObject[] QuestionGroupArr;
 
+    // The default (middle) response for each question.
+    [SerializeField]
+    private Toggle[] defaults;
+
     [SerializeField]
     private GameObject NextArtifactButton;
 
@@ -20,9 +24,6 @@ public class SurveyScript : MonoBehaviour
     private GameObject AnswerPanel;
 
     StreamWriter writer;
-
-    
-    string path = "testfile.txt";
 
     [SerializeField]
     private DropDown drop;
@@ -35,6 +36,16 @@ public class SurveyScript : MonoBehaviour
     {
         SurveyPanel.SetActive(false);
         qaArr = new QAClass[QuestionGroupArr.Length];
+        ResetToDefaults();
+    }
+
+    private void ResetToDefaults()
+    {
+
+        foreach (Toggle defaultOption in defaults)
+        {
+            defaultOption.isOn = true;
+        }
     }
 
     // Update is called once per frame
@@ -46,16 +57,19 @@ public class SurveyScript : MonoBehaviour
 
     public void SubmitAnswer()
     {
-        writer = new StreamWriter(path, true);
+        writer = new StreamWriter(NextButtonScript.Filename, true);
 
 
         for (int i = 0; i < qaArr.Length; i++)
         {
             qaArr[i] = ReadQuestionAndAnswer(QuestionGroupArr[i]);
 
-            writer.WriteLine(qaArr[i].Question + " -> " + qaArr[i].Answer);
+            writer.WriteLine(qaArr[i].Question + " : " + qaArr[i].Answer);
         }
         writer.Close();
+
+        ResetToDefaults();
+
         NextArtifactButton.SetActive(true);
         SurveyPanel.SetActive(false);
 

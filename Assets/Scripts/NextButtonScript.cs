@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
 public class NextButtonScript : MonoBehaviour
 {
@@ -22,8 +23,9 @@ public class NextButtonScript : MonoBehaviour
 
     static float artifactChange = 0f;
     
-    [SerializeField]
-    string filename = "testfile.txt";
+    // Making this static for now just to keep things simple.
+    static string filename = "testfile.txt";
+    public static string Filename { get { return filename; } }
     
     StreamWriter writer;
 
@@ -32,10 +34,14 @@ public class NextButtonScript : MonoBehaviour
 
     public void Start()
     {
+        // Generate filename from date / time.
+        // Replace / with - and : with . so that it's a valid filename.
+        filename = DateTime.Now.ToString().Replace('/', '-').Replace(':', '.').Replace(' ', '_') + ".txt";
+
         writer = new StreamWriter(filename, false); // Don't append for the first time the file is opened.
         if (!iswritten)
         {
-            writer.WriteLine("Participant number: " + idnum);
+            //writer.WriteLine("Participant number, " + idnum);
             iswritten = true;
         }
         writer.Close();
@@ -45,9 +51,9 @@ public class NextButtonScript : MonoBehaviour
     {
         artifactChange = Time.unscaledTime;
         writer = new StreamWriter(filename, true);
-        writer.WriteLine("Change number: " + changenum);
-        writer.WriteLine("Artifact switched to: " + drop.CurrentObjectName);
-        writer.WriteLine("Time spent on artifact: " + (artifactChange - lastnum) + " seconds");
+        writer.WriteLine("Test number: " + changenum);
+        writer.WriteLine("Test name: " + drop.CurrentObjectName);
+        writer.WriteLine("Time spent: " + (artifactChange - lastnum) + " seconds");
         writer.Close();
         changenum++;
         lastnum = artifactChange;
@@ -64,7 +70,7 @@ public class NextButtonScript : MonoBehaviour
 
         if (!finalwritten)
         {
-            writer.WriteLine("Experiment finshed.");
+            writer.WriteLine("Experiment finished.");
             finalwritten = true;
         }
         writer.Close();

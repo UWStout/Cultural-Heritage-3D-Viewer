@@ -1689,7 +1689,7 @@ GameObject:
   - component: {fileID: 206415265}
   - component: {fileID: 206415266}
   m_Layer: 5
-  m_Name: Toggle (2)
+  m_Name: Fine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1764,7 +1764,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &261237232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,7 +1930,7 @@ GameObject:
   - component: {fileID: 291534575}
   - component: {fileID: 291534576}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: Very uninterested
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2307,6 +2307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -3496,7 +3497,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Good
+  m_Text: Poor
 --- !u!222 &484913878
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3576,7 +3577,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Very interested
+  m_Text: Very uninterested
 --- !u!222 &490375982
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3810,7 +3811,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Very good
+  m_Text: Very poor
 --- !u!222 &505778277
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4173,7 +4174,7 @@ GameObject:
   - component: {fileID: 565887645}
   - component: {fileID: 565887646}
   m_Layer: 5
-  m_Name: Toggle (2)
+  m_Name: Neutral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4248,7 +4249,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &592729318
 GameObject:
   m_ObjectHideFlags: 0
@@ -4320,7 +4321,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Poor
+  m_Text: Good
 --- !u!222 &592729321
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5525,7 +5526,7 @@ GameObject:
   - component: {fileID: 744048386}
   - component: {fileID: 744048387}
   m_Layer: 5
-  m_Name: Toggle (3)
+  m_Name: Interested
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5750,8 +5751,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9, y: 5}
-  m_SizeDelta: {x: -28, y: -3}
+  m_AnchoredPosition: {x: 18.20969, y: 5}
+  m_SizeDelta: {x: -9.5806, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &832051668
 MonoBehaviour:
@@ -5786,7 +5787,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Interested
+  m_Text: Uninterested
 --- !u!222 &832051669
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5866,7 +5867,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Very poor
+  m_Text: Very good
 --- !u!222 &869179113
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6263,6 +6264,7 @@ GameObject:
   - component: {fileID: 911768900}
   - component: {fileID: 911768902}
   - component: {fileID: 911768901}
+  - component: {fileID: 911768903}
   m_Layer: 5
   m_Name: SurveyPanel
   m_TagString: Untagged
@@ -6331,6 +6333,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911768899}
   m_CullTransparentMesh: 1
+--- !u!114 &911768903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911768899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4955d242ee011a449c954b86892fddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestionGroupArr:
+  - {fileID: 720782046}
+  - {fileID: 554388271}
+  defaults:
+  - {fileID: 206415266}
+  - {fileID: 565887646}
+  NextArtifactButton: {fileID: 1781645595}
+  drop: {fileID: 972611813}
+  SurveyPanel: {fileID: 911768899}
 --- !u!1 &933279030
 GameObject:
   m_ObjectHideFlags: 0
@@ -6623,7 +6646,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Uninterested
+  m_Text: Interested
 --- !u!222 &989500159
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6858,7 +6881,7 @@ GameObject:
   - component: {fileID: 1005673574}
   - component: {fileID: 1005673575}
   m_Layer: 5
-  m_Name: Toggle (1)
+  m_Name: Poor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7512,7 +7535,7 @@ GameObject:
   - component: {fileID: 1052004556}
   - component: {fileID: 1052004557}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: Very poor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7637,7 +7660,7 @@ GameObject:
   - component: {fileID: 1076772686}
   - component: {fileID: 1076772687}
   m_Layer: 5
-  m_Name: Toggle (4)
+  m_Name: Very interested
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7860,7 +7883,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Very uninterested
+  m_Text: Very interested
 --- !u!222 &1102541634
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11344,7 +11367,7 @@ GameObject:
   - component: {fileID: 1680531244}
   - component: {fileID: 1680531245}
   m_Layer: 5
-  m_Name: Toggle (4)
+  m_Name: Very good
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12285,7 +12308,6 @@ GameObject:
   - component: {fileID: 1780120208}
   - component: {fileID: 1780120207}
   - component: {fileID: 1780120211}
-  - component: {fileID: 1780120212}
   m_Layer: 5
   m_Name: InteractionOverlay
   m_TagString: Untagged
@@ -12395,24 +12417,6 @@ MonoBehaviour:
   textBox: {fileID: 18393632}
   titleBox: {fileID: 1519042723}
   helpOverlay: {fileID: 1045465621}
---- !u!114 &1780120212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1780120206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4955d242ee011a449c954b86892fddd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QuestionGroupArr:
-  - {fileID: 720782046}
-  - {fileID: 554388271}
-  NextArtifactButton: {fileID: 1781645595}
-  drop: {fileID: 972611813}
-  SurveyPanel: {fileID: 911768899}
 --- !u!1 &1781645595
 GameObject:
   m_ObjectHideFlags: 0
@@ -12564,7 +12568,6 @@ MonoBehaviour:
   NextArtifactButton: {fileID: 1781645595}
   SurveyPanel: {fileID: 911768899}
   idnum: 0
-  filename: testfile.txt
 --- !u!1 &1791614711
 GameObject:
   m_ObjectHideFlags: 0
@@ -12711,7 +12714,7 @@ GameObject:
   - component: {fileID: 1822251492}
   - component: {fileID: 1822251493}
   m_Layer: 5
-  m_Name: Toggle (1)
+  m_Name: Uninterested
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13274,7 +13277,7 @@ GameObject:
   - component: {fileID: 1898874210}
   - component: {fileID: 1898874211}
   m_Layer: 5
-  m_Name: Toggle (3)
+  m_Name: Good
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14102,7 +14105,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1780120212}
+      - m_Target: {fileID: 911768903}
         m_TargetAssemblyTypeName: SurveyScript, Assembly-CSharp
         m_MethodName: SubmitAnswer
         m_Mode: 1
