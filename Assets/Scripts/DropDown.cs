@@ -15,6 +15,13 @@ public class DropDown : MonoBehaviour
     GameObject popupmenu;
     GameObject holder;
 
+    GameObject currentObjectTest;
+
+    [SerializeField]
+    private GameObject SurveyPanel;
+    [SerializeField]
+    private GameObject NextArtifactButton;
+
     public string CurrentObjectName
     {
         get
@@ -107,6 +114,12 @@ public class DropDown : MonoBehaviour
         DontDestroyOnLoad(currentObject);
     }
 
+   /* IEnumerator HideSurveyPanel()
+    {
+        SurveyPanel.SetActive(true);
+        yield return new WaitForSeconds(.1f);
+    }*/
+
     public void NextArtifact()
     {
         if (!textBox)
@@ -122,7 +135,12 @@ public class DropDown : MonoBehaviour
 
         if (sequenceIndex == randomizedObjects.Length - 1) 
         {
-            Application.Quit();
+            //Application.Quit();
+
+            SurveyPanel.SetActive(true);
+            NextArtifactButton.SetActive(false);
+
+
 
             //sequenceIndex = 0;
 
@@ -132,10 +150,12 @@ public class DropDown : MonoBehaviour
         }
         else
         {
+      
             sequenceIndex++;
             Destroy(currentObject);
             currentObject = Instantiate(CurrentObject, CurrentObject.transform.position, CurrentObject.transform.rotation);
             DontDestroyOnLoad(currentObject);
+
         }
     }
 }

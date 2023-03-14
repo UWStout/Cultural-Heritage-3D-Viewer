@@ -9,6 +9,12 @@ public class NextButtonScript : MonoBehaviour
     DropDown drop;
 
     [SerializeField]
+    private GameObject NextArtifactButton;
+
+    [SerializeField]
+    private GameObject SurveyPanel;
+
+    [SerializeField]
     int idnum = 0;
 
     static int changenum = 1;
@@ -45,8 +51,11 @@ public class NextButtonScript : MonoBehaviour
         writer.Close();
         changenum++;
         lastnum = artifactChange;
-       
-        drop.NextArtifact();
+        SurveyPanel.SetActive(true);
+        NextArtifactButton.SetActive(false);
+        
+       // drop.NextArtifact();
+        
     }
 
     public void OnDestroy()
