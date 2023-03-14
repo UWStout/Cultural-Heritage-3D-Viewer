@@ -47,6 +47,15 @@ public class NextButtonScript : MonoBehaviour
         writer.Close();
     }
 
+    public void Update()
+    {
+        if (lastnum == 0)
+        {
+            // Initialize first timestamp on the first update frame.
+            lastnum = Time.unscaledTime;
+        }
+    }
+
     public void OnClick()
     {
         artifactChange = Time.unscaledTime;
