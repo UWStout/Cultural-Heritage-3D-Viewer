@@ -15,8 +15,6 @@ public class DropDown : MonoBehaviour
     GameObject popupmenu;
     GameObject holder;
 
-    GameObject currentObjectTest;
-
     [SerializeField]
     private GameObject SurveyPanel;
     [SerializeField]
@@ -80,24 +78,13 @@ public class DropDown : MonoBehaviour
             }
         }
 
-        currentObject = Instantiate(CurrentObject, CurrentObject.transform.position, CurrentObject.transform.rotation);
-        DontDestroyOnLoad(currentObject);
-        sequenceIndex = 0;
+        sequenceIndex = -1; // Display first object after NextArtifact() is called.
         holder = GameObject.Find("Annotations Popup Holder");
         popupmenu = holder.transform.GetChild(0).gameObject;
-        if (!textBox)
-        {
-            textBox = popupmenu.transform.GetChild(1).GetComponent<Text>();
-        }
-        if (!titleBox)
-        {
-            titleBox = popupmenu.transform.GetChild(0).GetComponent<Text>();
-        }
     }
 
-    public void HandleInputData(int val)
+    void ResetAnnotations()
     {
-        // Clear the annotation box when changing objects
         if (!textBox)
         {
             textBox = popupmenu.transform.GetChild(1).GetComponent<Text>();
@@ -108,10 +95,25 @@ public class DropDown : MonoBehaviour
         }
         textBox.text = "";
         titleBox.text = "";
+    }
 
-        Destroy(currentObject);
-        currentObject = Instantiate(objects[val], objects[val].transform.position, objects[val].transform.rotation);
+    void LoadObject(GameObject objectToLoad)
+    {
+        if (currentObject != null)
+        {
+            Destroy(currentObject);
+        }
+
+        currentObject = Instantiate(objectToLoad, objectToLoad.transform.position, objectToLoad.transform.rotation);
         DontDestroyOnLoad(currentObject);
+    }
+
+    public void HandleInputData(int val)
+    {
+        // Clear the annotation box when changing objects
+        ResetAnnotations();
+
+        LoadObject(objects[val]);
     }
 
    /* IEnumerator HideSurveyPanel()
@@ -122,16 +124,8 @@ public class DropDown : MonoBehaviour
 
     public void NextArtifact()
     {
-        if (!textBox)
-        {
-            textBox = popupmenu.transform.GetChild(1).GetComponent<Text>();
-        }
-        if (!titleBox)
-        {
-            titleBox = popupmenu.transform.GetChild(0).GetComponent<Text>();
-        }
-        textBox.text = "";
-        titleBox.text = "";
+        // Clear the annotation box when changing objects
+        ResetAnnotations();
 
         if (sequenceIndex == randomizedObjects.Length - 1) 
         {
@@ -141,25 +135,12 @@ public class DropDown : MonoBehaviour
             UnityEditor.EditorApplication.isPlaying = false;
 #endif
             Application.Quit();
-
-            //SurveyPanel.SetActive(true);
-            //NextArtifactButton.SetActive(false);
-
-
-
-            //sequenceIndex = 0;
-
-            //Destroy(currentObject);
-            //currentObject = Instantiate(CurrentObject, CurrentObject.transform.position, CurrentObject.transform.rotation);
-            //DontDestroyOnLoad(currentObject);
         }
         else
         {
       
             sequenceIndex++;
-            Destroy(currentObject);
-            currentObject = Instantiate(CurrentObject, CurrentObject.transform.position, CurrentObject.transform.rotation);
-            DontDestroyOnLoad(currentObject);
+            LoadObject(CurrentObject);
 
             // Start the timer only after the survey is submitted and the object is changed.
             NextArtifactButton.StartTimer();
