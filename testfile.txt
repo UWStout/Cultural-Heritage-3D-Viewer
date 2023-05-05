@@ -39,3 +39,154 @@ Artifact switched to: Guan Yu
 Time spent on artifact: 128.1299 seconds
 Experiment finshed.
 Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Change number: 1
+Artifact switched to: Guan Yu
+Time spent on artifact: 559.8785 seconds
+Change number: 2
+Artifact switched to: Polyena
+Time spent on artifact: 2.622009 seconds
+Change number: 3
+Artifact switched to: Ding
+Time spent on artifact: 0.5657959 seconds
+Change number: 4
+Artifact switched to: Autumn Jade
+Time spent on artifact: 2649.339 seconds
+Change number: 5
+Artifact switched to: Altarpiece
+Time spent on artifact: 0.7866211 seconds
+Participant number: 0
+First artifact is Guan Yu.
+Time spent on artifact: 3219.038 seconds
+Change number: 1
+Artifact switched to: Ding
+Change number: 6
+Artifact switched to: Boreas
+Time spent on artifact: 1363.635 seconds
+Change number: 7
+Artifact switched to: Vase
+Time spent on artifact: 1.067383 seconds
+Change number: 8
+Artifact switched to: Tiger Hat
+Time spent on artifact: 2.32666 seconds
+Participant number: 0
+Experiment finshed.
+Participant number: 0
+Experiment finshed.

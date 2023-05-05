@@ -24,6 +24,7 @@ public class CameraController : MonoBehaviour
     private Vector2 lastMousePosition;
     private Vector3 startPosition;
     private Quaternion startRotation;
+    private bool cameraEnabled;
 
     // Start is called before the first frame update
     void Start()
@@ -151,5 +152,18 @@ public class CameraController : MonoBehaviour
     {
         transform.position = startPosition;
         transform.rotation = startRotation;
+    }
+
+    public void EnableCamera()
+    {
+        cameraEnabled = true;
+
+    }
+
+    public void DisableCamera()
+    {
+        cameraEnabled = false;
+        dragCamera = false;
+        rotateCamera = false;
     }
 }
